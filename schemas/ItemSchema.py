@@ -4,15 +4,15 @@ from pydantic import BaseModel
 class ItemPostRequestSchema(BaseModel):
     category_id: int
     name: str
-    status: int
+    status: str
     total_quantity: int
     price: int
     
     
 class ItemUpdateRequestSchema(BaseModel):
-    category_id: Optional[int] = None
     name: Optional[str] = None
-    status: Optional[int] = None
+    category_id: Optional[int] = None
+    status: Optional[str] = None
     available_quantity: Optional[int] = None
     hold_quantity: Optional[int] = None
     total_quantity: Optional[int] = None
@@ -22,7 +22,7 @@ class ItemUpdateRequestSchema(BaseModel):
 class ItemGetRequestSchema(BaseModel):
     category_id: int
     name: str
-    status: int
+    status: str
     available_quantity: int
     hold_quantity: int
     total_quantity: int

@@ -4,6 +4,7 @@ from routers.UserRouter import UserRouter
 from routers.CartRouter import CartRouter
 from routers.CategoryRouter import CategoryRouter
 from routers.ItemRouter import ItemRouter
+from routers.OrderRouter import OrderRouter
 
 def create_app():
     app = Flask(__name__)
@@ -12,6 +13,7 @@ def create_app():
     app.register_blueprint(CartRouter)
     app.register_blueprint(CategoryRouter)
     app.register_blueprint(ItemRouter)
+    app.register_blueprint(OrderRouter)
     return app
 
 

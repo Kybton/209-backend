@@ -4,6 +4,7 @@ from flask_pydantic import validate
 from configs.Database import SessionLocal
 from models.UserModel import User
 from models.CartModel import Cart
+from models.CartItemModel import CartItem
 from schemas.BaseReturnSchema import BaseReturnSchema
 
 CartRouter = Blueprint("carts", __name__, url_prefix="/carts")

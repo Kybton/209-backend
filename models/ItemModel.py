@@ -13,6 +13,7 @@ from sqlalchemy.dialects.mysql import (
 )
 
 from models.BaseModel import EntityMeta
+from configs.Constants import ItemStatus
 
 
 class Item(EntityMeta):
@@ -41,16 +42,16 @@ class Item(EntityMeta):
     
     categories = relationship(
         "Category",
-        lazy="dynamic"
     )
     
     PrimaryKeyConstraint(id)
 
-    def normalize(self):
+    def json(self):
         return {
             "id": self.id.__str__(),
+            "category_id": self.category_id.__str__(),
             "name": self.name.__str__(),
-            "status": self.status.__str__(),
+            "status": list(filter(lambda x: ItemStatus[x] == self.status, ItemStatus))[0],
             "available_quantity": self.available_quantity.__str__(),
             "hold_quantity": self.hold_quantity.__str__(),
             "total_quantity": self.total_quantity.__str__(),
