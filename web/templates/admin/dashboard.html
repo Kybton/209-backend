@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/admin-dashboard.css" ) }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="item-container">
+            <a class="item" href="/admin/users">
+                Users
+            </a>
+
+            <a class="item" href="/admin/category">
+                Category
+            </a>
+
+            <a class="item" href="/admin/items">
+                Item
+            </a>
+
+            <a class="item" href="/admin/orders">
+                Orders
+            </a>
+
+        </div>
+    </div>
+</body>

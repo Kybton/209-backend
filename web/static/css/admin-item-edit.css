@@ -1,0 +1,57 @@
+body {
+    background-color: rgb(39, 55, 77);
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-box {
+    width: 100%;
+    background-color: #526D82;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 4rem;
+}
+
+.search-box a {
+    transform: translateX(-39.4rem);
+    color: white;
+}
+
+.search-box a:hover, svg:hover {
+    color: #DDE6ED;
+}
+
+.search-box a:link {
+    text-decoration: none;
+}
+
+.search-box a:visited {
+    text-decoration: none;
+}
+
+.edit-div {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+    align-items: center;
+}
+
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+}
+
+.edit-form input, select {
+    margin-bottom: 1rem;
+}
+
+.save-btn {
+    width: 100px;
+}

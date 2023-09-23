@@ -9,7 +9,8 @@ from sqlalchemy.orm import relationship
 
 from sqlalchemy.dialects.mysql import (
     INTEGER,
-    TINYINT
+    TINYINT,
+    TEXT
 )
 
 from models.BaseModel import EntityMeta
@@ -39,6 +40,9 @@ class Item(EntityMeta):
         INTEGER(unsigned=True),
         nullable=False,
     )
+    img_url = Column(
+        TEXT
+    )
     
     categories = relationship(
         "Category",
@@ -55,5 +59,6 @@ class Item(EntityMeta):
             "available_quantity": self.available_quantity.__str__(),
             "hold_quantity": self.hold_quantity.__str__(),
             "total_quantity": self.total_quantity.__str__(),
-            "price": self.price.__str__()
+            "price": self.price.__str__(),
+            "img_url": self.img_url
         }

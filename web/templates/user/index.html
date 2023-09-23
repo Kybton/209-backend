@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Krafthy - {{ title }}</title>
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/root.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/user-item-style.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/admin-item-style.css") }}">
+    </head>
+    <body>
+        <div class="main-container">
+
+            <div class="search-box">
+                <div>
+                    <h3>Krafthy</h3>
+                </div>
+
+                <div>
+                    <a href="http://localhost:5000/user/cart?user_id={{ user_id }}" class="button">Cart</a>
+                    <a href="http://localhost:5000/user/orders?user_id={{ user_id }}" class="button">Orders</a>
+                    <a href="http://localhost:5000/user/login" class="button">Log Out</a>
+                </div>
+            </div>
+            
+            {% for item in data %}
+                <div class="item">
+                    <div class="img-container">
+                        <img src="{{ item["img_url"] }}">
+                    </div>
+                    <div class="text-container">
+                        <span>Name: {{ item["name"] }}, </span>
+                        <span>Available: {{ item["available_quantity"] }}, </span>
+                        <span>Price: {{ item["price"] }}</span><br>
+                        <a href="http://localhost:5000/user/cart/add_to_cart?user_id={{ user_id }}&item_id={{ item["id"] }}" class="button">Cart</a>
+                        <a href="http://localhost:5000/user/items/place_order?user_id={{ user_id }}&item_id={{ item["id"] }}" class="button">Order</a>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </body>
+</html>

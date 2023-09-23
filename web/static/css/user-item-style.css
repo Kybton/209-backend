@@ -1,0 +1,159 @@
+body {
+    min-height: 100vh;
+    background-color: rgb(39, 55, 77);
+}
+
+.main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.item {
+    background-color: #DDE6ED77;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    height: 360px;
+    padding-bottom: 1rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.item:hover {
+    box-shadow: 0px 0px 10px 3px #ffffff;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.img-container img {
+    border-radius: 10px 10px 0px 0px;
+    max-width: 300px;
+    min-height: 250px;
+    max-height: 250px;
+    transition: all 0.3s ease-in;
+}
+
+.img-container img:hover {
+    border-radius: 10px 10px 10px 10px;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 10px 3px #ffffff66;
+}
+
+.text-container {
+    padding-top: 1rem;
+    margin: 0 1rem;
+    font-size: 13px;
+    align-content: center;
+    color: white;
+    border-radius: 0 0 10px 10px;
+}
+
+.text-container a {
+    border-radius: 5px;
+    border: 1px solid white;
+    color: black;
+    background-color: transparent;
+    margin: 13px;
+    padding: 9px 30px;
+    transition: all .5s linear;
+}
+
+.text-container a:hover {
+    border: 1px solid rgb(39, 55, 77);
+    background-color: rgb(39, 55, 77);
+    color: white;
+}
+
+.text-container a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+}
+
+.search-box {
+    width: 100%;
+    background-color: #526D82;
+    color: white;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+    display: flex;
+    padding: 0px 10px;
+    height: 4rem;
+}
+
+.button {
+    border-radius: 5px;
+    border: 1px solid white;
+    color: black;
+    background-color: transparent;
+    margin: 5px;
+    padding: 5px 30px;
+    transition: all .5s linear;
+}
+
+.button:hover {
+    border: 1px solid rgb(39, 55, 77);
+    background-color: rgb(39, 55, 77);
+    color: white;
+}
+
+.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+}
+
+.brand {
+    border: 0px;      
+    color: white;
+    font-weight: bold;
+    font-size: large;
+}
+
+.brand:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.back-btn {
+    transform: translateX(-35rem);
+    color: white;
+}
+
+.add-btn {
+    color: white;
+    transform: translateX(35rem);
+    padding: 0.5rem 2rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    transition: all 0.5s ease-in-out;
+}
+
+.add-btn:hover {
+    border: 1px solid rgb(39, 55, 77);
+    background-color: rgb(39, 55, 77);
+    color: white;
+}
+
+.back-btn:hover, .add-btn:hover, svg:hover {
+    color: #DDE6ED;
+}
+
+.search-box a:link {
+    text-decoration: none;
+}
+
+.search-box a:visited {
+    text-decoration: none;
+}

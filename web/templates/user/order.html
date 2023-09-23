@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Krafthy - {{ title }}</title>
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/root.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/user-item-style.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/admin-item-style.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/user-order.css") }}">
+    </head>
+    <body>
+        <div class="main-container">
+
+            <div class="search-box">
+                <div>
+                    <a class="brand" href="http://localhost:5000/user/{{ user_id }}/items">Krafthy</a>
+                </div>
+
+                <div>
+                    <a href="http://localhost:5000/user/cart?user_id={{ user_id }}" class="button">Cart</a>
+                    <a href="http://localhost:5000/user/orders?user_id={{ user_id }}" class="button">Orders</a>
+                    <a href="http://localhost:5000/user/login" class="button">Log Out</a>
+                </div>
+            </div>
+
+            <table class="user-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Delivery Address</th>
+                    <th>Contact Number</th>
+                    <th>Order Time</th>
+                    <th>Remark</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+
+                {% for order in data %}
+                <tr>
+                    <td>{{ order["id"] }}</td>
+
+                    <td>{{ order["delivery_address"] }}</td>
+
+                    <td>{{ order["contact_number"] }}</td>
+
+                    <td>{{ order["order_time"] }}</td>
+
+                    <td>{{ order["remark"] }}</td>
+
+                    <td>{{ order["total"] }}</td>
+
+                    <td>{{ order["status"] }}</td>
+
+                    <td>
+                        {% if order["status"] == "pending" %}
+                        <a href="http://localhost:5000/user/orders/cancel?order_id={{ order["id"] }}" class="button">Cancel</a>
+                        {% endif %}
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>

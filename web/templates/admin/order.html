@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Krafthy - {{ title }}</title>
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/root.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/admin-item-style.css") }}">
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="search-box">
+                <a href="http://localhost:5000/admin/dashboard">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="white" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                        <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+                    </svg>
+                    Back
+                </a>
+                View and Edit Orders
+            </div>
+            <table class="user-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Delivery Address</th>
+                    <th>Contact Number</th>
+                    <th>Order Time</th>
+                    <th>Remark</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+
+                {% for order in data %}
+                <tr>
+                    <td>{{ order["id"] }}</td>
+
+                    <td>{{ order["delivery_address"] }}</td>
+
+                    <td>{{ order["contact_number"] }}</td>
+
+                    <td>{{ order["order_time"] }}</td>
+
+                    <td>{{ order["remark"] }}</td>
+
+                    <td>{{ order["total"] }}</td>
+
+                    <td>{{ order["status"] }}</td>
+                    
+                    <td>
+                        <form action="http://localhost:5000/admin/orders/status", method="POST">
+                            <input name="order-id" value="{{ order["id"] }}" hidden>
+                            <select id="order-status" name="order-status">
+                            {% if order["status"] == "pending" %}
+                                <option value="pending" selected>Pending</option>
+                                <option value="accepted">Accepted</option>
+                                <option value="rejected">Rejected</option>
+                                <option value="processing">Processing</option>
+                                <option value="complete">Completed</option>
+
+                            {% elif order["status"] == "accepted" %}
+                                <option value="accepted" selected>Accepted</option>
+                                <option value="processing">Processing</option>
+                                <option value="complete">Completed</option>
+
+                            {% elif order["status"] == "processing" %}
+                                <option value="processing" selected>Processing</option>
+                                <option value="complete">Completed</option>
+
+                            {% elif order["status"] == "completed" %}
+                                <option value="complete">Completed</option>
+
+                            {% elif order["status"] == "rejected" %}
+                                <option value="rejected">Rejected</option>
+
+                            {% endif %}
+                            </select>
+                            <button type="submit" class="button">Save</button>
+                        </form>
+                    </td>
+
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>

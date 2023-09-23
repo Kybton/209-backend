@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Krafthy - {{title}}</title>
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/root.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/user-edit.css") }}">
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="edit-container">
+                <form action="">
+                    <lable>ID: {{ data["id"] }}</lable><br>
+
+                    <lable>Name</lable>
+                    <input name="full_name" value="{{data["full_name"]}}"><br>
+
+                    <lable>Email Address</lable>
+                    <input name="email_address" value="{{data["email_address"]}}"><br>
+
+                    {% if data["is_admin"] == 1%}
+                        <input class="admin-box" name="is_admin" type="checkbox" checked>
+                    {% else %}
+                        <input class="admin-box" name="is_admin" type="checkbox">
+                    {% endif %}
+
+                    <lable>Admin</lable><br>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

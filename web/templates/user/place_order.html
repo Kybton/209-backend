@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Krafthy</title>
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/root.css") }}">
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="form-div">
+                <form action="http://localhost:5000/user/items/final_place_order?user_id={{ user_id }}&item_id={{ item_id }}" method="POST">
+                    <input name="item_id" value="{{item_id}}" hidden>
+                    <lable>Quantity</lable>
+                    <input type="number" name="quantity" required min="1" value="1">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone_number" required>
+                    <label>Address</label>
+                    <textarea name="address" required></textarea>
+                    <label>Remark</label>
+                    <textarea name="remark"></textarea>
+                    <button type="submit">Place Order</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

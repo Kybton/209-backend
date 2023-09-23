@@ -1,3 +1,4 @@
+from typing import List
 from pydantic import BaseModel
 
 
@@ -15,5 +16,13 @@ class UserLoginSchema(BaseModel):
     password: str
 
 
-class UserSchema(UserBaseSchema):
+class UserSchema(BaseModel):
     id: int
+    full_name: str
+    email_address: str
+    is_admin: int
+    # cart_id: int
+
+class UserReturnSchema(BaseModel):
+    detail: str
+    data: List[UserSchema] = []

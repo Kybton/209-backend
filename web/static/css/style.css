@@ -1,0 +1,90 @@
+.main-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #2e2e2e;
+}
+
+.login-container {
+    border: 2px solid aliceblue;
+    border-radius: 30px;
+    width: auto;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue;
+}
+
+.login-container h1 {
+    cursor: pointer;
+    margin-top: 2rem;
+    padding: 1rem 3rem;
+    transition: all 0.7s ease-out;
+    color: white;
+    background-color: #2e2e2e;
+}
+
+.login-container h1:hover {
+    transform: rotate(10deg);
+}
+
+.branding-div {
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+
+.form-div {
+    margin-right: 5rem;
+    text-align: left;
+    align-content: center;
+}
+
+.login-container h2 {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+}
+
+.login-container input {
+    margin-bottom: 2rem;
+    width: 20rem;
+    height: 2.5rem;
+}
+
+.login-container input:focus {
+    border: 2px solid;
+}
+
+.login-btn {
+    background-color: transparent;
+    color: black;
+    border-radius: 10px;
+    width: 8rem;
+    margin-left: 30%;
+    height: 3rem;
+    margin-bottom: 2rem;
+    opacity: 1;
+    transition: all 0.5s ease-in-out;
+}
+
+.login-btn:hover {
+    background-color: black;
+    color: white;
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.register-btn {
+    color: black;
+    margin-left: 35%;
+    border: none;
+    background-color: transparent;
+}
+
+.register-btn:hover {
+    text-decoration: none;
+}

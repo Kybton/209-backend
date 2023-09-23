@@ -1,0 +1,103 @@
+.main-container {
+    background-color: rgb(39, 55, 77);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.search-box {
+    width: 100%;
+    background-color: #526D82;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 4rem;
+}
+
+.search-box a {
+    transform: translateX(-35rem);
+    color: white;
+}
+
+.search-box a:hover, svg:hover {
+    color: #DDE6ED;
+}
+
+.search-box a:link {
+    text-decoration: none;
+}
+
+.search-box a:visited {
+    text-decoration: none;
+}
+
+.user-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.user-table td, .user-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.user-table tr:nth-child(even){background-color: #DDE6ED;}
+.user-table tr:nth-child(odd){background-color: white;}
+
+.user-table tr:hover {
+    background-color: #9DB2BF;
+}
+
+.user-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: rgb(39, 55, 77);
+    color: white;
+}
+
+.edit-btn {
+    color: black;
+}
+
+.edit-btn:link {
+    text-decoration: none;
+}
+
+.edit-btn:visited {
+    text-decoration: none;
+}
+
+label {
+    color: white;
+}
+
+#edit-id {
+    width: 3rem;
+}
+
+#edit-form {
+    margin: 20px;
+}
+
+#edit-email {
+    width: 20rem;
+}
+
+.save-btn {
+    width: 5rem;
+    height: 2rem;
+    border: solid 1px white;
+    background-color: transparent;
+    color: white;
+    transition: all 0.4s ease-in-out;
+}
+
+.save-btn:hover {
+    background-color: #526D82;
+    border-radius: 4px;
+    transform: scale(1.05);
+}

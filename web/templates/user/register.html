@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<head>
+    <title>Krafthy - {{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/style.css") }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <!-- this is the background container -->
+    <div class="main-container">
+        <div class="login-container">
+            <div class="branding-div">
+                <h1>Krafthy</h1>
+                <h2>Member Register</h2>
+            </div>
+            
+            <div class="form-div">
+            <form action="http://127.0.0.1:5000/user/register" method="POST">
+                <input type="text" name="full_name" placeholder="Full Name" required><br>
+
+                <input type="email" name="email_address" placeholder="Email Address" required><br>
+
+                <input type="password" name="password" placeholder="Password" required><br>
+
+                <button type="submit" class="login-btn">Register</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</body>

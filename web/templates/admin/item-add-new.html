@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Krafthy - {{ title }}</title>
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/root.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/admin-item-edit.css") }}">
+    </head>
+    <body>
+        <div class="search-box">
+            <a href="http://localhost:5000/admin/items">
+                <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="white" class="bi bi-arrow-left-square-fill" viewBox="0 0 16 16">
+                    <path d="M16 14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12zm-4.5-6.5H5.707l2.147-2.146a.5.5 0 1 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L5.707 8.5H11.5a.5.5 0 0 0 0-1z"/>
+                </svg>
+                Back
+            </a>
+            Edit Item
+        </div>
+
+        <div class="edit-div">
+            <form class="edit-form" action="http://localhost:5000/admin/items" method="POST">
+                <label for="edit-name">Name</label>
+                <input type="text" id="edit-name" name="name" required>
+
+                <label for="edit-name">Price</label>
+                <input type="text" id="edit-price" name="price" required>
+                
+                <label for="edit-stock">Total</label>
+                <input type="number" id="edit-stock" name="total" required>
+
+                <label for="edit-stock">Image URL</label>
+                <input type="text" id="edit-img" name="img_url">
+                
+                <label for="edit-status">Status</label>
+                <select name="status">
+                    <option value="listed">Listed</option>
+                    <option value="unlisted">Unlisted</option>
+                </select>
+
+                <label for="edit-category">Category</label>
+                <select name="category">
+                    {% for category in categories %}
+                        <option value={{ category["id"] }}>{{ category["name"] }}</option>
+                    {% endfor %}
+                </select>
+
+                <button type="submit" class="save-btn">Add</button>
+            </form>
+        </div>
+    </body>
+</html>

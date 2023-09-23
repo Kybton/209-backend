@@ -5,7 +5,7 @@ from configs.Database import SessionLocal
 from models.UserModel import User
 from models.CartModel import Cart
 from schemas.BaseReturnSchema import BaseReturnSchema
-from schemas.UserSchema import UserPostRequestSchema, UserLoginSchema
+from schemas.UserSchema import UserPostRequestSchema, UserLoginSchema, UserSchema
 from services.PasswordService import PasswordService
 
 UserRouter = Blueprint("user", __name__, url_prefix="/users")
@@ -32,12 +32,18 @@ def create(body: UserPostRequestSchema):
 
     return BaseReturnSchema(detail="User registered successfully.", data=user.json()), HTTPStatus.CREATED
 
-@UserRouter.route("/login", methods=["GET"])
+@UserRouter.route("/login", methods=["POST"])
 @validate()
 def login(body: UserLoginSchema):
-    
+
     with SessionLocal() as session:
-        user = session.query(User).filter(User.email_address == body.email_address).first()
+        data = session.query(User, Cart.id).filter(User.email_address == body.email_address, Cart.user_id == User.id).first()
+
+        if not data:
+            return BaseReturnSchema(detail="User not found."), HTTPStatus.NOT_FOUND
+ 
+        user = data[0]
+        cart_id = data[1]
         
         if not user:
             return BaseReturnSchema(detail="User not found."), HTTPStatus.NOT_FOUND
@@ -45,5 +51,8 @@ def login(body: UserLoginSchema):
         passwordService = PasswordService(password=body.password, hashed_password=user.password)
         if not (passwordService.check_password()):
             return BaseReturnSchema(detail="Wrong credentials."), HTTPStatus.UNAUTHORIZED
+        
+        user = user.json()
+        user["cart_id"] = cart_id
 
-    return BaseReturnSchema(detail="Logged in successfully.", data=user.json()), HTTPStatus.OK
+    return BaseReturnSchema(detail="Logged in successfully.", data=user), HTTPStatus.OK
