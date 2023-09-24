@@ -1,0 +1,25 @@
+.form-div {
+    height: 100%;
+    width: 60%;
+}
+
+.form-div form {
+    color: White;
+    display: flex;    
+    flex-direction: column;
+}
+
+.form-div input {
+    margin-bottom: 20px;
+}
+
+.button {
+    color: white;
+    margin-top: 20px;
+}
+
+
+.button:hover {
+    color: black;
+    background-color: aliceblue;
+}

@@ -15,6 +15,7 @@
                     Back
                 </a>
                 View and Edit Orders
+                <div></div>
             </div>
             <table class="user-table">
                 <tr>
@@ -45,35 +46,34 @@
                     <td>{{ order["status"] }}</td>
                     
                     <td>
-                        <form action="http://localhost:5000/admin/orders/status", method="POST">
-                            <input name="order-id" value="{{ order["id"] }}" hidden>
-                            <select id="order-status" name="order-status">
-                            {% if order["status"] == "pending" %}
-                                <option value="pending" selected>Pending</option>
-                                <option value="accepted">Accepted</option>
-                                <option value="rejected">Rejected</option>
-                                <option value="processing">Processing</option>
-                                <option value="complete">Completed</option>
+                        {% if order["status"] != "complete" %}
+                            <form action="http://localhost:5000/admin/orders/status", method="POST">
+                                <input name="order-id" value="{{ order["id"] }}" hidden>
+                                <select id="order-status" name="order-status">
+                                {% if order["status"] == "pending" %}
+                                    <option value="pending" selected>Pending</option>
+                                    <option value="accepted">Accepted</option>
+                                    <option value="rejected">Rejected</option>
+                                    <option value="processing">Processing</option>
+                                    <option value="complete">Completed</option>
 
-                            {% elif order["status"] == "accepted" %}
-                                <option value="accepted" selected>Accepted</option>
-                                <option value="processing">Processing</option>
-                                <option value="complete">Completed</option>
+                                {% elif order["status"] == "accepted" %}
+                                    <option value="accepted" selected>Accepted</option>
+                                    <option value="processing">Processing</option>
+                                    <option value="complete">Completed</option>
 
-                            {% elif order["status"] == "processing" %}
-                                <option value="processing" selected>Processing</option>
-                                <option value="complete">Completed</option>
+                                {% elif order["status"] == "processing" %}
+                                    <option value="processing" selected>Processing</option>
+                                    <option value="complete">Completed</option>
 
-                            {% elif order["status"] == "completed" %}
-                                <option value="complete">Completed</option>
+                                {% elif order["status"] == "rejected" %}
+                                    <option value="rejected">Rejected</option>
 
-                            {% elif order["status"] == "rejected" %}
-                                <option value="rejected">Rejected</option>
-
-                            {% endif %}
-                            </select>
-                            <button type="submit" class="button">Save</button>
-                        </form>
+                                {% endif %}
+                                </select>
+                                <button type="submit" class="button">Save</button>
+                            </form>
+                        {% endif %}
                     </td>
 
                 </tr>

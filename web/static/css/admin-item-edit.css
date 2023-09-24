@@ -33,18 +33,17 @@ body {
 }
 
 .edit-div {
-    width: 500px;
     height: 500px;
     display: flex;
     justify-content: center;
-    background-color: grey;
     align-items: center;
+    color: white;
 }
 
 .edit-form {
     display: flex;
     flex-direction: column;
-    width: 400px;
+    width: 600px;
     align-items: center;
 }
 

@@ -3,6 +3,18 @@ body {
     background-color: rgb(39, 55, 77);
 }
 
+a {
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
 .main-container {
     display: flex;
     flex-wrap: wrap;

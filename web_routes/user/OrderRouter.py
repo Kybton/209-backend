@@ -51,8 +51,13 @@ def get_user_orders():
 
 @UserOrderRouter.route("/cancel")
 def user_cancel_order():
+    user_id = request.args.get("user_id")
     order_id = request.args.get("order_id")
+    print(user_id)
+
     with SessionLocal() as session:
         order = session.get(Order, order_id)
+        order.status = OrderStatus["rejected"]
+        session.commit()
 
-    pass
+    return redirect(f"/user/orders?user_id={user_id}")

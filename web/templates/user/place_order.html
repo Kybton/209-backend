@@ -3,9 +3,25 @@
     <head>
         <title>Krafthy</title>
         <link rel="stylesheet" href="{{ url_for("static", filename="css/root.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/user-item-style.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/admin-item-style.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/user-order.css") }}">
+        <link rel="stylesheet" href="{{ url_for("static", filename="css/user-place-order.css") }}">
     </head>
     <body>
         <div class="main-container">
+            <div class="search-box">
+                <div>
+                    <a class="brand" href="http://localhost:5000/user/{{ user_id }}/items">Krafthy</a>
+                </div>
+
+                <div>
+                    <a href="http://localhost:5000/user/cart?user_id={{ user_id }}" class="button">Cart</a>
+                    <a href="http://localhost:5000/user/orders?user_id={{ user_id }}" class="button">Orders</a>
+                    <a href="http://localhost:5000/user/login" class="button">Log Out</a>
+                </div>
+            </div>
+
             <div class="form-div">
                 <form action="http://localhost:5000/user/items/final_place_order?user_id={{ user_id }}&item_id={{ item_id }}" method="POST">
                     <input name="item_id" value="{{item_id}}" hidden>
@@ -17,7 +33,7 @@
                     <textarea name="address" required></textarea>
                     <label>Remark</label>
                     <textarea name="remark"></textarea>
-                    <button type="submit">Place Order</button>
+                    <button type="submit" class="button">Place Order</button>
                 </form>
             </div>
         </div>

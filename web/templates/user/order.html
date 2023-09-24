@@ -52,7 +52,7 @@
 
                     <td>
                         {% if order["status"] == "pending" %}
-                        <a href="http://localhost:5000/user/orders/cancel?order_id={{ order["id"] }}" class="button">Cancel</a>
+                        <a href="http://localhost:5000/user/orders/cancel?order_id={{ order["id"] }}&user_id={{ user_id }}" class="button">Cancel</a>
                         {% endif %}
                     </td>
 
